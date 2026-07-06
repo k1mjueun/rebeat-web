@@ -73,6 +73,10 @@
     position: relative;
     padding: clamp(80px, 16vh, 160px) 0 clamp(80px, 14vh, 140px);
     overflow: hidden;
+    aspect-ratio: 16 / 9;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
   }
   .hero::before {
     content: '';
@@ -314,10 +318,11 @@
 
   /* ---------- overview section ---------- */
   .overview-section {
-    background: transparent;
+    background: #000000;
     padding: clamp(80px, 15vh, 140px) 0;
     border: none;
-    border-top: none;
+    border-top: none !important;
+    border-bottom: none;
   }
   .overview-container {
     position: relative;
@@ -508,6 +513,9 @@
     bottom: 0;
     left: 0;
     right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     font-size: clamp(0.85rem, 1.8vw, 0.95rem);
     color: #999;
@@ -628,7 +636,7 @@
   .how-it-works-wrap {
     display: grid;
     grid-template-columns: 1fr;
-    gap: clamp(20px, 3vh, 40px);
+    gap: clamp(12px, 1.5vh, 24px);
     align-items: stretch;
   }
   .how-it-works-wrap > .eyebrow,
@@ -661,7 +669,7 @@
   }
   .fn {
     background: rgba(244, 245, 248, 0.7);
-    padding: 36px 28px 40px;
+    padding: 48px 40px 52px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -669,7 +677,7 @@
     border: 1px solid var(--line);
     transition: all 0.3s ease;
     cursor: pointer;
-    min-height: 280px;
+    min-height: 320px;
   }
   .fn:hover {
     background: rgba(244, 245, 248, 1);
@@ -687,15 +695,15 @@
   }
   .fn-title {
     font-size: 0.85rem; font-weight: 800; letter-spacing: -0.02em;
-    line-height: 1.2; margin: 8px 0 0; text-wrap: balance;
+    line-height: 1.2; margin: 16px 0 0; text-wrap: balance;
     text-align: center;
   }
-  .fn-desc { color: var(--muted); font-size: 0.75rem; line-height: 1.4; margin: 6px 0 0; }
+  .fn-desc { color: var(--muted); font-size: 0.75rem; line-height: 1.4; margin: 12px 0 0; }
   .fn-tag {
     font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.06em;
     color: var(--ink); background: var(--ground-soft);
     border: 1px solid var(--line); padding: 2px 5px; border-radius: 999px;
-    margin-top: 8px; align-self: flex-start;
+    margin-top: 12px; align-self: flex-start;
   }
 
   /* ---------- illustrations ---------- */
@@ -706,7 +714,7 @@
   .dot-acc { fill: var(--accent); stroke: none; }
   .fill-ground { fill: var(--ground); }
 
-  .fn-viz { height: 50px; margin-bottom: 4px; display: flex; align-items: center; justify-content: center; }
+  .fn-viz { height: 50px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; }
   .fn-viz svg { height: 84px; width: auto; max-width: 100%; overflow: visible; }
 
   /* ---------- product ---------- */
@@ -809,7 +817,7 @@
     margin-bottom: 0;
     overflow: hidden;
     border: none;
-    min-height: clamp(600px, 85vh, 1000px);
+    aspect-ratio: 16 / 9;
     background: linear-gradient(180deg, #000 0%, #2a2a2a 100%);
   }
   .product-detail-video {
@@ -822,12 +830,52 @@
     object-position: center;
     z-index: 0;
   }
+  .product-detail-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
+    z-index: 1;
+  }
+  .product-detail-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    padding: 40px 20px;
+  }
+  .product-detail-title {
+    font-size: clamp(2.4rem, 7vw, 3.8rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: #f0f0f0;
+    text-align: center;
+    margin: 0 0 24px 0;
+    text-wrap: balance;
+  }
+  .product-detail-description {
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    color: #ccc;
+    text-align: center;
+    max-width: 50ch;
+    line-height: 1.65;
+    margin: 0;
+  }
   .suspension-section {
     position: relative;
-    padding: clamp(100px, 18vh, 160px) 0;
+    padding: 0;
     overflow: hidden;
     margin: 0;
     border-top: none;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    aspect-ratio: 16 / 9;
   }
   .suspension-video {
     position: absolute;
@@ -838,6 +886,66 @@
     object-fit: cover;
     z-index: 0;
   }
+
+  /* ---------- final sequence section ---------- */
+  .final-sequence-section {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+    border: none;
+    aspect-ratio: 16 / 9;
+    background: #000;
+  }
+  .final-sequence-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+  .final-sequence-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
+    z-index: 1;
+  }
+  .final-sequence-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: clamp(400px, 60vh, 700px);
+  }
+  .final-sequence-title {
+    font-size: clamp(2.4rem, 7vw, 3.8rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: #f0f0f0;
+    text-align: center;
+    margin: 0 0 24px 0;
+    text-wrap: balance;
+  }
+  .final-sequence-description {
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    color: #ccc;
+    text-align: center;
+    max-width: 50ch;
+    line-height: 1.65;
+    margin: 0;
+  }
+
   .suspension-overlay {
     position: absolute;
     top: 0;
@@ -851,9 +959,17 @@
     position: relative;
     z-index: 2;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: clamp(400px, 60vh, 700px);
+    min-height: 100%;
+    padding: 40px 20px;
+  }
+  .suspension-title-group {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .suspension-title {
     font-size: clamp(2.4rem, 7vw, 3.8rem);
@@ -864,6 +980,24 @@
     text-align: center;
     margin: 0;
     text-wrap: balance;
+  }
+  .suspension-subtitle {
+    font-size: clamp(1.08rem, 2.4vw, 1.28rem);
+    color: #f0f0f0;
+    line-height: 1.65;
+    max-width: 60ch;
+    margin: 0.4rem auto 0;
+    text-align: center;
+  }
+  .suspension-description {
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+    color: #ccc;
+    line-height: 1.65;
+    max-width: 60ch;
+    margin: 1rem auto 0;
+    text-align: center;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
   .front-display-content {
     position: relative;
@@ -1004,18 +1138,6 @@
     </div>
   </header>
 
-  <!-- OVERVIEW -->
-  <section class="block overview-section">
-    <div class="overview-container">
-      <img src="overview-image.jpg" alt="Beat Overview" class="overview-image">
-      <div class="overview-content">
-        <p class="eyebrow">Overview</p>
-        <h2 class="section-title">Beat의 핵심 기술</h2>
-        <p class="lead">응급구조를 위한 영상처리 모듈과 자율주행 로봇 운영 장치 기술</p>
-      </div>
-    </div>
-  </section>
-
   <!-- BACKGROUND -->
   <section class="block background-section">
     <div class="wrap reveal">
@@ -1069,17 +1191,17 @@
       <div class="solution-cards">
         <div class="solution-card">
           <div class="card-badge">01</div>
-          <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=600&fit=crop');"></div>
+          <div class="card-image" style="background-image: url('autonomous-detection.png');"></div>
           <div class="card-overlay"></div>
           <div class="card-content">
             <h3 class="card-title">Autonomous Detection</h3>
           </div>
-          <p class="card-description">음성인식과 AI 기반 자세 감지로<br>응급상황을 즉시 인식</p>
+          <p class="card-description">ST-GCN기술을 통한 자세 감지로<br>응급상황 즉시 인식</p>
         </div>
 
         <div class="solution-card">
           <div class="card-badge">02</div>
-          <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=600&fit=crop');"></div>
+          <div class="card-image" style="background-image: url('smart navigation.jpg');"></div>
           <div class="card-overlay"></div>
           <div class="card-content">
             <h3 class="card-title">Smart Navigation</h3>
@@ -1089,13 +1211,25 @@
 
         <div class="solution-card">
           <div class="card-badge">03</div>
-          <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1631217314831-c02b2e50c193?w=600&h=600&fit=crop');"></div>
+          <div class="card-image" style="background-image: url('emergency.jpg'); filter: grayscale(100%);"></div>
           <div class="card-overlay"></div>
           <div class="card-content">
             <h3 class="card-title">Emergency Response</h3>
           </div>
-          <p class="card-description">전문가 가이드와 AED 자동작동으로<br>생명을 구하는 응급처치 실현</p>
+          <p class="card-description">의료진과 원격연결 및 AED 작동<br>상세설명으로 응급처치 실현</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="block overview-section">
+    <div class="overview-container">
+      <img src="overview-image.jpg" alt="Beat Overview" class="overview-image">
+      <div class="overview-content">
+        <p class="eyebrow">Overview</p>
+        <h2 class="section-title">Beat의 핵심 기술</h2>
+        <p class="lead">응급구조를 위한 영상처리 모듈과 자율주행 로봇 운영 장치 기술</p>
       </div>
     </div>
   </section>
@@ -1104,8 +1238,6 @@
   <section class="block no-top-line how-it-works">
     <div class="wrap reveal how-it-works-wrap">
       <p class="eyebrow muted">How It Works</p>
-      <h2 class="section-title">감지부터 현장 통제까지, 한 대로.</h2>
-      <p class="lead">응급 상황이 인식된 순간부터 Beat이 수행하는 프로세스입니다.</p>
 
       <!-- 경로 지도 시각화 -->
       <div class="route-map">
@@ -1242,6 +1374,9 @@
         </svg>
       </div>
 
+      <h2 class="section-title">감지부터 현장 통제까지, 단 한 대로</h2>
+      <p class="lead">응급상황이 인식된 순간부터 RE-BEAT가 수행하는 프로세스입니다.</p>
+
       <div class="functions">
         <div class="fn">
           <div class="fn-viz" aria-hidden="true">
@@ -1375,7 +1510,7 @@
 
   <!-- FRONT DISPLAY INTERACTION -->
   <section class="block front-display-section">
-    <div class="wrap reveal">
+    <div class="wrap">
       <div class="front-display-content">
         <!-- 왼쪽: 텍스트 -->
         <div class="front-display-text">
@@ -1391,13 +1526,6 @@
     </div>
   </section>
 
-  <!-- PRODUCT DETAIL VIDEO -->
-  <section class="product-detail-section">
-    <video autoplay muted loop class="product-detail-video">
-      <source src="product-detail.mp4" type="video/mp4">
-    </video>
-  </section>
-
   <!-- SUSPENSION SYSTEM -->
   <section class="block suspension-section">
     <video autoplay muted loop class="suspension-video">
@@ -1405,8 +1533,31 @@
     </video>
     <div class="suspension-overlay"></div>
     <div class="wrap suspension-content">
-      <h2 class="suspension-title">하부 구동부 서스펜션</h2>
+      <div class="suspension-title-group">
+        <h2 class="suspension-title">Suspension Drive Axis</h2>
+        <p class="suspension-subtitle">하부 구동축 서스펜션</p>
+      </div>
+      <p class="suspension-description">서스펜션 구동축은 장애물이나 지형의 기복에 맞춰 위아래로 움직이며, 충격을 흡수하고 안정적인 주행 밸런스를 유지합니다.</p>
     </div>
+  </section>
+
+  <!-- PRODUCT DETAIL VIDEO -->
+  <section class="product-detail-section">
+    <video autoplay muted loop class="product-detail-video">
+      <source src="product-detail.mp4" type="video/mp4">
+    </video>
+    <div class="product-detail-overlay"></div>
+    <div class="wrap product-detail-content">
+      <h2 class="product-detail-title">Display Interface</h2>
+      <p class="product-detail-description">로봇에 붙어있는 디스플레이는 사용자가 AED를 어떻게 사용하는지 직관적으로<br>도움을 주는 역할을 합니다.</p>
+    </div>
+  </section>
+
+  <!-- FINAL SEQUENCE -->
+  <section class="final-sequence-section">
+    <video autoplay muted loop playsinline class="final-sequence-video">
+      <source src="final-sequence.mp4" type="video/mp4">
+    </video>
   </section>
 
 <footer class="sitefoot">

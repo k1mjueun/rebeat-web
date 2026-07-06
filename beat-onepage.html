@@ -73,6 +73,10 @@
     position: relative;
     padding: clamp(80px, 16vh, 160px) 0 clamp(80px, 14vh, 140px);
     overflow: hidden;
+    aspect-ratio: 16 / 9;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
   }
   .hero::before {
     content: '';
@@ -813,7 +817,7 @@
     margin-bottom: 0;
     overflow: hidden;
     border: none;
-    min-height: clamp(600px, 85vh, 1000px);
+    aspect-ratio: 16 / 9;
     background: linear-gradient(180deg, #000 0%, #2a2a2a 100%);
   }
   .product-detail-video {
@@ -842,7 +846,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: clamp(400px, 60vh, 700px);
+    min-height: 100%;
+    padding: 40px 20px;
   }
   .product-detail-title {
     font-size: clamp(2.4rem, 7vw, 3.8rem);
@@ -864,10 +869,13 @@
   }
   .suspension-section {
     position: relative;
-    padding: clamp(100px, 18vh, 160px) 0;
+    padding: 0;
     overflow: hidden;
     margin: 0;
     border-top: none;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    aspect-ratio: 16 / 9;
   }
   .suspension-video {
     position: absolute;
@@ -889,7 +897,7 @@
     margin-bottom: 0;
     overflow: hidden;
     border: none;
-    min-height: clamp(600px, 85vh, 1000px);
+    aspect-ratio: 16 / 9;
     background: #000;
   }
   .final-sequence-video {
@@ -954,7 +962,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: clamp(400px, 60vh, 700px);
+    min-height: 100%;
+    padding: 40px 20px;
   }
   .suspension-title-group {
     text-align: center;
